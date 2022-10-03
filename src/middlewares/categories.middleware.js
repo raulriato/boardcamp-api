@@ -1,7 +1,6 @@
-import { connection } from "../database/db.js";
 import { categorySchema } from "../schemas/category.schema.js";
 
-async function categoriesMiddleware(req, res, next) {
+function categoriesMiddleware(req, res, next) {
     const { name } = req.body;
 
     const categoryValidation = categorySchema.validate(req.body, {abortEarly: false});
@@ -13,7 +12,7 @@ async function categoriesMiddleware(req, res, next) {
     };
 
     res.locals.name = name;
-    
+
     next();
 };
 

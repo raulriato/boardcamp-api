@@ -1,4 +1,4 @@
-import joi, { number } from 'joi';
+import joi from 'joi';
 
 const gameSchema = joi.object({
     name: joi.string().trim().required(),
