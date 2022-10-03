@@ -13,9 +13,9 @@ async function gamesMiddleware(req, res, next) {
 
     try {
         const category = await connection.query('SELECT * FROM categories WHERE id = $1;', [game.categoryId]);
-        const categoryId = category.rows[0].id;
+        console.log(category);
 
-        if (!categoryId) {
+        if (category.rows.length === 0) {
             return res.sendStatus(400);
         };
 
